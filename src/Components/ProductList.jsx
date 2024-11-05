@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductList.css";
+import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "./CartSlice";
 
 const ProductList = () => {
+  const dispatch = useDispatch();
+  const [disabledProducts, setDisableProducts] = useState([]);
+
   const products = [
     { id: 1, name: "Product A", price: 60 },
     { id: 2, name: "Product B", price: 75 },
     { id: 3, name: "Product C", price: 30 },
   ];
+
+  const handleAddToCart = (product) => {
+    dispatch(addItemToCart(product));
+    setDisableProducts([...disabledProducts, product.id]);
+  };
 
   return (
     <div className="product-list">
@@ -17,7 +28,15 @@ const ProductList = () => {
             <span>
               {product.name} - ${product.price}
             </span>
-            <button>Add to Cart</button>
+            <button
+              className={`add-to-cart-btn ${
+                disableProducts.includes(includes.id) ? "disabled" : ""
+              }`}
+              onClick={() => handleAddToCart(product.id)}
+              disabled={disableProducts.includes(product.id)}
+            >
+              Add to Cart
+            </button>
           </li>
         ))}
       </ul>
