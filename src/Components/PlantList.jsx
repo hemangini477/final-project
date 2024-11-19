@@ -112,7 +112,7 @@ const PlantList = () => {
           </div>
           <button className="" onClick={() => setShowItems(!showItems)}>
             <img
-              src="../../final-project/public/Shopping Cart.png"
+              src="https://github.com/hemangini477/final-project/tree/main/public/Shopping Cart.png"
               alt=""
               width="40px;"
             />
