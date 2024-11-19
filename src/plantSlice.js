@@ -4,7 +4,7 @@ export const plantSlice = createSlice({
   name: "plant",
   initialState: [
     {
-      img: https://github.com/hemangini477/final-project/tree/main/public/Fiddleleaf Fig.jpg",
+      img: "https://github.com/hemangini477/final-project/tree/main/public/Fiddleleaf Fig.jpg",
       name: "Fiddleleaf Fig",
       cost: 3500,
       quantity: 0,
